@@ -10,6 +10,41 @@ package hello
 import java.util.function.DoubleBinaryOperator
 
 fun main(args: Array<String>) {
+    //Characters or Char
+    var c:Char = 'c'
+    //@ 	COMMERCIAL AT (U+0040)
+    c = '\u0040'
+    println("copyright char = $c")
+    val myName = "Hoang"
+    for (eachChar in myName) {
+        println("eachChar = $eachChar")
+    }
+    val strings: Array<String> = arrayOf("a", "b", "c", "d")
+    for (string in strings) {
+        println("string = $string")
+    }
+    val intNumbers:Array<Int> = Array<Int>(5, { i -> 2 * i })
+    for (intNumber in intNumbers) {
+        println("intNumber = $intNumber")
+    }
+    val text = """
+    | These are my tutorial videos in Kotlin
+    |My name is Nguyen duc Hoang
+    |My email: sunlight4d@gmail.com
+    |Youtube channel: https://www.youtube.com/c/nguyenduchoang
+    """.trimMargin("|")
+    println("text = $text")
+
+
+
+
+
+
+
+
+
+    /*
+    //Lesson 02
     println("Hello world")
     val x: Double = 3.156
     //x = 5.23
@@ -43,5 +78,5 @@ fun main(args: Array<String>) {
 
     val aTrueValue2 = (100 > 99) || (10 > 100)
     println("aTrueValue2 = $aTrueValue2")
-
+    */
 }
