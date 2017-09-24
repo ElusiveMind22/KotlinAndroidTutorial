@@ -17,6 +17,22 @@ open class Person(open val firstName: String, val lastName: String, var age: Int
     open fun talk(message: String = "") {
         println("$fullName says $message")
     }
+    //getter
+    var isAdult: Boolean
+        get() {
+            println("Prepare to get isAdult")
+            if (age == null) {
+                return false
+            } else if(age!! > 18) {
+                return true
+            }
+            return false
+        }
+        set(value) {
+            println("Prepare to set isAdult")
+            age = if (value == true) 18 else null
+        }
+    lateinit var language: String
 }
 
 class Engineer(fieldOfStudy: String, firstName: String, lastName: String, age: Int?): Person(firstName, lastName, age) {
@@ -38,7 +54,12 @@ fun main(args: Array<String>) {
     var engineer = Engineer("mechanics", firstName = "Alan", lastName = "Turing", age = 40)
     engineer.talk("Good afternoon")
     println("Details. Firstname = ${engineer.firstName}, lastName = ${engineer.lastName}, age = ${engineer.age}")
-
-
-
+    //getters
+    println("${engineer.firstName} is an adult ? ${engineer.isAdult}")
+    //and setters
+    engineer.isAdult = false
+    if (engineer.age == null) {
+        println("age is null")
+    }
+    engineer.language = "English"
 }
