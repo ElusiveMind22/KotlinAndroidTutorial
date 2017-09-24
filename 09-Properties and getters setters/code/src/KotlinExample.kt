@@ -3,7 +3,7 @@
  *Mr Nguyen Duc Hoang
  * Youtube channel: https://www.youtube.com/c/nguyenduchoang
  * Email: sunlight4d@gmail.com
- * Functions in Kotlin
+ * Properties, getters and setters in Kotlin
  */
 
 package hello
@@ -17,17 +17,18 @@ open class Person(open val firstName: String, val lastName: String, var age: Int
     open fun talk(message: String = "") {
         println("$fullName says $message")
     }
-    //getter
+    //getter and setter
     var isAdult: Boolean
         get() {
             println("Prepare to get isAdult")
             if (age == null) {
                 return false
-            } else if(age!! > 18) {
+            }else if(age!! > 18) {
                 return true
             }
             return false
         }
+    //setter
         set(value) {
             println("Prepare to set isAdult")
             age = if (value == true) 18 else null
@@ -54,12 +55,15 @@ fun main(args: Array<String>) {
     var engineer = Engineer("mechanics", firstName = "Alan", lastName = "Turing", age = 40)
     engineer.talk("Good afternoon")
     println("Details. Firstname = ${engineer.firstName}, lastName = ${engineer.lastName}, age = ${engineer.age}")
+
     //getters
     println("${engineer.firstName} is an adult ? ${engineer.isAdult}")
-    //and setters
+    //setter
     engineer.isAdult = false
     if (engineer.age == null) {
         println("age is null")
     }
     engineer.language = "English"
+    println("Details. language = ${engineer.language}")
+
 }
