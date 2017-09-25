@@ -3,7 +3,7 @@
  *Mr Nguyen Duc Hoang
  * Youtube channel: https://www.youtube.com/c/nguyenduchoang
  * Email: sunlight4d@gmail.com
- * Functions in Kotlin
+ * Inheritance in Kotlin
  */
 
 package hello
@@ -15,18 +15,16 @@ open class Person(open val firstName: String, val lastName: String, var age: Int
         println("Initialized with firstName: $this.firstName, lastName: $lastName, age: $age")
     }
     open fun talk(message: String = "") {
-        println("$fullName says $message")
+//        println("$fullName says $message")
+        println("$firstName $lastName says $message")
     }
 }
-
-class Engineer(fieldOfStudy: String, firstName: String, lastName: String, age: Int?): Person(firstName, lastName, age) {
+class Engineer(var fieldOfStudy: String, firstName: String, lastName: String, age: Int?): Person(firstName, lastName, age) {
     override val firstName = super.firstName.toUpperCase()
-//    final override fun talk(message: String) {
     override fun talk(message: String) {
         super.talk(message)
         println("I am an engineer")
     }
-
 }
 
 fun main(args: Array<String>) {
@@ -35,10 +33,9 @@ fun main(args: Array<String>) {
     println("Details. Firstname = ${person.firstName}, lastName = ${person.lastName}, age = ${person.age}")
     person.talk("Good morning")
     */
-    var engineer = Engineer("mechanics", firstName = "Alan", lastName = "Turing", age = 40)
-    engineer.talk("Good afternoon")
-    println("Details. Firstname = ${engineer.firstName}, lastName = ${engineer.lastName}, age = ${engineer.age}")
-
-
-
+    var engineer:Engineer = Engineer("mechanics", firstName = "Alan", lastName = "Turing", age = 40)
+    println("Details. Firstname = ${engineer.firstName}, " +
+            "lastName = ${engineer.lastName}, age = ${engineer.age}," +
+            "fieldOfStudy = ${engineer.fieldOfStudy}")
+    engineer.talk("Good evening")
 }
