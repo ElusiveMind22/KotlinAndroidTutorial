@@ -7,10 +7,9 @@
  */
 
 package hello
-//Higher-order function = function that takes functions as parameters, or returns a function
-
 import java.util.*
 
+//Higher-order function = function that takes functions as parameters, or returns a function
 class Lock {
     fun lock() {
         println("I locked the process")
@@ -35,8 +34,7 @@ fun doATask(lock: Lock, body: () -> Int): Int {
         lock.unlock()
     }
 }
-
-//function that takes functions as parameters, returns a value
+//Ex2: function that takes functions as parameters, returns a value
 val compare: (Int, Int) -> Boolean = { x, y -> x < y }
 fun getMaxValueInCollection(collection: Collection<Int>, less: (Int, Int) -> Boolean): Int? {
     var maxValue: Int? = null
@@ -45,13 +43,12 @@ fun getMaxValueInCollection(collection: Collection<Int>, less: (Int, Int) -> Boo
             maxValue = item
     return maxValue
 }
-
 fun main(args: Array<String>) {
-    //function that takes functions as parameters, returns a function
     doATask(Lock(), bodyFunction)
     var ints:Collection<Int> = listOf(1, 2, 3, 4, 10, 6)
     var maxValue = getMaxValueInCollection(ints, compare)
     println("maxValue = $maxValue")
+
 }
 
 
