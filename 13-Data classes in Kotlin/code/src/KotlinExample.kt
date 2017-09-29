@@ -21,17 +21,16 @@ fun main(args: Array<String>) {
     println("After copy")
     println(user.toString())
     println(backupUser.toString())
-
-    //Memory location = "hashCode"
+    //"hashCode" = object's content
     println(backupUser.hashCode())
     println(user.hashCode())
-
-//    if (user.equals(backupUser)) {
-    if (user.hashCode() == backupUser.hashCode()) {
-        println("2 objects are the same")
+//    if (user.hashCode() == backupUser.hashCode()) {
+    if(user.equals(backupUser)) {
+        println("2 objects have the same content")
     } else {
-        println("2 objects are NOT the same")
+        println("2 objects have NOT the same content")
     }
+
 
 }
 
