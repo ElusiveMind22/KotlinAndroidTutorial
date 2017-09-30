@@ -12,17 +12,17 @@ package hello
 data class Customer(var name: String, val age: Int) {
 
 }
+
 //Functions that return multiple values
 data class Result(val x: Int, val y: Int, val z: Int)
 fun calculateVector(): Result {
-    //calculations
-    return Result(1, 2, 3)
+    //calculations..
+    return Result(1, 5, 6)
 }
 
 fun main(args: Array<String>) {
     var customer = Customer("Duc Hoang", 35)
     var (name, age) = customer
-    //var (_, age) = customer
     println("Name = $name, age = $age")
 
     var customer2 = Customer("Alex", 20)
@@ -31,9 +31,9 @@ fun main(args: Array<String>) {
         println("Name = $name, age = $age")
     }
 
-    val (x, y, z) = hello.calculateVector()
-    println("x = $x, y = $y, z = $z,")
-    //Map
+    var (x1, y1, z1) = calculateVector()
+    println("x1 = $x1, y1 = $y1, z1 = $z1,")
+    //map
     var userObject = mapOf<String, Any?>("name" to "Alexander", "age" to 40)
     for ((key, value) in userObject) {
         println("key = $key, value = $value")

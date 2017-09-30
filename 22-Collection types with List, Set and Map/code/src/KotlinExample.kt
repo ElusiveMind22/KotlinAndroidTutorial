@@ -13,16 +13,14 @@ fun main(args: Array<String>) {
     val readOnlyNumbers: List<Int> = numbers
     println(numbers)
     numbers.add(4)
-
-    println(readOnlyNumbers)
-//    readOnlyNumbers.add
-    //readOnlyNumbers.clear()
-
+    println(numbers)
+    println("readOnlyNumbers = $readOnlyNumbers")
+//    readOnlyNumbers.add()
     val strings = mutableSetOf("a", "b", "c", "d")
-    if (strings.contains("g")) {
-        println("this set contains g")
+    if (strings.contains("b")) {
+        println("this set contains b")
     } else {
-        println("this set not contains g")
+        println("this set not contains b")
     }
     println(strings)
     println(strings.sortedDescending())
@@ -35,15 +33,13 @@ fun main(args: Array<String>) {
 
     println("first element of floatMutableList = ${floatMutableList.first()}")
     println("last element of floatMutableList = ${floatMutableList.last()}")
-
     println("Filter of floatMutableList with value > 2.0 =>  ${floatMutableList.filter {item -> item > 2.0F }}")
     val listWithNullElement:MutableList<Int?> = mutableListOf(1, 2, null, 3, 4)
-    println("Remove null elements, list = ${listWithNullElement}")
-    //println("Remove null elements, list = ${listWithNullElement.requireNoNulls()}")
-//    var mutableHashMap = hashMapOf("x" to 1, "y" to 2)
+    println("list = ${listWithNullElement}")
+//    listWithNullElement.requireNoNulls()
     var mutableHashMap = mutableMapOf<String, Int>("x" to 1, "y" to 2)
-//    mutableHashMap["x"] = 10
-    mutableHashMap.set("x", 10)
+//    mutableHashMap["x"] = 100
+    mutableHashMap.set("x", 100)
     println("mutableHashMap = $mutableHashMap")
 
 }
