@@ -3,51 +3,39 @@
  *Mr Nguyen Duc Hoang
  * Youtube channel: https://www.youtube.com/c/nguyenduchoang
  * Email: sunlight4d@gmail.com
- * Higher-order function in Kotlin
+ * Ranges in Kotlin
  */
 
 package hello
-import java.util.*
 
-//Higher-order function = function that takes functions as parameters, or returns a function
-class Lock {
-    fun lock() {
-        println("I locked the process")
-    }
-    fun unlock() {
-        println("I unlocked the process")
-    }
-}
-
-var bodyFunction = fun():Int {
-    val taskId = Random().nextInt()
-    println("This is the body function. TaskId = $taskId")
-    return taskId
-}
-
-fun doATask(lock: Lock, body: () -> Int): Int {
-    lock.lock()
-    try {
-        return body()
-    }
-    finally {
-        lock.unlock()
-    }
-}
-//Ex2: function that takes functions as parameters, returns a value
-val compare: (Int, Int) -> Boolean = { x, y -> x < y }
-fun getMaxValueInCollection(collection: Collection<Int>, less: (Int, Int) -> Boolean): Int? {
-    var maxValue: Int? = null
-    for (item in collection)
-        if (maxValue == null || less(maxValue, item))
-            maxValue = item
-    return maxValue
-}
 fun main(args: Array<String>) {
-    doATask(Lock(), bodyFunction)
-    var ints:Collection<Int> = listOf(1, 2, 3, 4, 10, 6)
-    var maxValue = getMaxValueInCollection(ints, compare)
-    println("maxValue = $maxValue")
+    //in and !in
+    //for (i in 1..10) {
+//    for (i in 10 downTo 1) {
+    for (i in 1 until 10) {
+        print("$i, ")
+    }
+    println()
+    val ints = listOf<Int>(10, 20, 30, 40, 50, 60)
+    if (30 in ints) {
+        println("This number exist in the list")
+    } else {
+        println("This number not exist in the list")
+    }
+    //step
+    for (i in 0..20 step 2) {
+        print("$i, ")
+    }
+    println()
+    for (i in 20 downTo 0 step 2) {
+        print("$i, ")
+    }
+    var filterInts = (1..30 step 2)
+    println("filterInts details: ")
+    for (filterInt in filterInts) {
+        print("$filterInt, ")
+    }
+    println("filterInts first element: ${filterInts.first}, last element: ${filterInts.last}")
 
 }
 
