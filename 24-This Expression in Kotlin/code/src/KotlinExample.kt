@@ -7,33 +7,48 @@
  */
 
 package hello
+class C {
+
+}
 class A { // label =  @A
     inner class B { // label = @B
-        fun Int.foo() { // label = @foo
-            val a = this@A // A's this
-            val b = this@B // B's this
-            println("b = $b")
+        fun C.extendingFunction1() { // label = @extendingFunction1
+            val thisAtA = this@A
+            println("thisAtA = $thisAtA")
 
-            val c = this // foo()'s receiver, an Int
-            val c1 = this@foo // foo()'s receiver, an Int
+            val thisAtB = this@B
+            println("thisAtB = $thisAtB")
 
-            val funLit = lambda@ fun String.() {
-                val d = this // funLit's receiver
+            val thisAtExtendingFunction1 = this@extendingFunction1
+            println("thisAtExtendingFunction1 = $thisAtExtendingFunction1")
+
+            val thisAtHere = this
+            println("thisAtHere = $thisAtHere")
+
+            val noNameFunction = fun() {
+                val thisAtNoname = this
+                println("thisAtNoname = $thisAtNoname")
             }
-
-            val funLit2 = { s: String ->
-                // foo()'s receiver, since enclosing lambda expression
-                // doesn't have any receiver
-                val d1 = this
+            noNameFunction()
+            val lambdaFunction = { s: String ->
+                val thisAtLambda = this
+                println("thisAtLambda = $thisAtLambda")
             }
+            lambdaFunction("a string")
+
         }
+        fun methodOfClassB() {
+            var c = C()
+            c.extendingFunction1()
 
+        }
     }
 }
 
+
 fun main(args: Array<String>) {
     var aObject = A()
-    aObject.B().
+    aObject.B().methodOfClassB()
 }
 
 
