@@ -7,7 +7,7 @@
  */
 
 package hello
-
+//type aliases is upper camel case
 typealias IntSet = Set<Int>
 typealias StringMap<K> = MutableMap<K, String?>
 
@@ -39,4 +39,5 @@ fun main(args: Array<String>) {
     val p: Predicate<Int> = { it > 0 }
     println(listOf(1,-2,5,6,-7,9,-8).filter(p))
 }
+
 
