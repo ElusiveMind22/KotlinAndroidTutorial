@@ -10,9 +10,10 @@ package hello
 class C {
 
 }
+
 class A { // label =  @A
     inner class B { // label = @B
-        fun C.extendingFunction1() { // label = @extendingFunction1
+        fun C.extendingFunction1() {
             val thisAtA = this@A
             println("thisAtA = $thisAtA")
 
@@ -30,25 +31,25 @@ class A { // label =  @A
                 println("thisAtNoname = $thisAtNoname")
             }
             noNameFunction()
+
             val lambdaFunction = { s: String ->
                 val thisAtLambda = this
                 println("thisAtLambda = $thisAtLambda")
             }
-            lambdaFunction("a string")
-
+            lambdaFunction("this is a string")
         }
         fun methodOfClassB() {
-            var c = C()
-            c.extendingFunction1()
-
+            var cObject = C()
+            cObject.extendingFunction1()
+            
         }
     }
+
 }
 
-
 fun main(args: Array<String>) {
-    var aObject = A()
-    aObject.B().methodOfClassB()
+    var objectA = A()
+    objectA.B().methodOfClassB()
 }
 
 
