@@ -7,7 +7,7 @@
  */
 
 package hello
-//types start with upper case
+//types/classes start with upper case
 open class Person(var name: String) {//Classes with a few arguments can be written in a single line
     //Add doc to public
     /**
@@ -16,7 +16,7 @@ open class Person(var name: String) {//Classes with a few arguments can be writt
      * @return successful / unsuccessful
      */
     fun work(): Boolean {
-//        use 4 space indentation
+        //use 4 space indentation
         println("I am working now")
         return true
     }
@@ -37,21 +37,23 @@ class Employer(
         Working {
 
 }
-//If a function returns Unit, the return type should be omitted:
-//fun sayHello(): Unit { // ": Unit" is omitted here
+/*
+fun sayHello(): Unit {
+    println("Hello world !")
+}
+*/
 fun sayHello() {
     println("Hello world !")
 }
 fun main(args: Array<String>) {
-//    use of camelCase for names (and avoid underscore in names)
+    //use of camelCase for names (and avoid underscore in names)
     val person = Person(name = "Hoang")
     var list = listOf<Int>(1, 3, 4 ,6, 7)
     //In lambda expressions, spaces should be used around the curly braces
     list.map { element -> element * 2 }
     list.filter { it -> it > 10 }
+
     list.filter { it > 10 } //use this for short lambdas
-
-
 }
 
 
